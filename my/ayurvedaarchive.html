@@ -1,0 +1,407 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="">
+*/
+html, body {background-color: transparent; margin-left:0; margin-top:0;}
+
+.simple-pagination-page-numbers a{
+display: block;
+	float: left;
+	width: 1.5rem;
+	text-align: center;
+}
+
+.my-navigation a{
+	color: #000000;
+	text-decoration: none;
+	padding-top: 2px;
+	padding-bottom: 2px;
+        padding-left: 1px;
+	padding-right: 1px;
+}
+.my-navigation a h1{
+	padding: 2px;
+	color: #000000;
+	text-align: center;
+}
+.my-navigation a:hover{
+	color: #124d9b;
+	background-color: #A8CEDD}
+.my-navigation {
+	display: table;
+}
+
+.my-navigation:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+.my-navigation div{
+	float: left;
+}
+.my-navigation div + div{
+	margin-left: 5px;
+}
+#postarctbl{
+width: 220px;
+white-space: nowrap;
+overflow: hidden;
+}
+
+#postarctbl td {
+background-color: #C9DDE5;
+}
+
+#postarctbl td:hover {
+background-color: #A8CEDD;
+}
+#postarctbl td a {
+background-color: #C9DDE5;
+color: #000000;
+text-decoration: none;
+font-size:16px;
+font-family: georgia;
+}
+#postarctbl td a:hover {
+background-color: #A8CEDD;
+color: #01576D;
+}
+
+#bp_toc1 {
+min-height: 250px;
+max-height: 250px;
+width: 220px;
+white-space: nowrap;
+overflow: hidden;
+}
+#bp_toc1 a: hover{
+color:#0b0375;
+background-color:#A8CEDD;
+}
+</style>
+
+
+<base target="_top" />
+
+
+</head>
+<body>
+
+
+<div id="archivetitle">
+<div id="bp_toc1">
+</div>
+<script type="text/javascript">
+// ---------------------------------------------------
+// BLOGTOC
+// ---------------------------------------------------
+// BlogToc creates a clickable Table Of Contents for
+// Blogger Blogs.
+// It uses the JSON post feed, and create a ToC of it.
+// The ToC can be sorted by title or by date, both
+// ascending and descending, and can be filtered by
+// label.
+// ---------------------------------------------------
+// Author: Beautiful Beta
+// Url: http://beautifulbeta.blogspot.com
+// Version: 2
+// Date: 2007-04-12
+// ---------------------------------------------------
+// Modified by Pankaj Joshi
+// http://pjoshi235.blogspot.com
+// Date : 23-05-2015
+// global arrays
+
+  var postTitle = new Array();     // array of posttitles
+   var postUrl = new Array();       // array of posturls
+   var postDate = new Array();      // array of post publish dates
+   var postSum = new Array();       // array of post summaries
+   var postLabels = new Array();    // array of post labels
+
+// global variables
+   var sortBy = "datenewest";         // default value for sorting ToC
+   var tocLoaded = false;           // true if feed is read and ToC can be displayed
+   var numChars = 500;              // number of characters in post summary
+   var postFilter = '';             // default filter value
+   var tocdiv = document.getElementById("bp_toc1"); //the toc container
+   var totalEntires =0; //Entries grabbed till now
+   var totalPosts =0; //Total number of posts in the blog.
+
+// main callback function
+
+function loadtoc(json) {
+
+   function getPostData() {
+   // this functions reads all postdata from the json-feed and stores it in arrays
+      if ("entry" in json.feed) {
+         var numEntries = json.feed.entry.length;
+         totalEntires = totalEntires + numEntries;
+         totalPosts=json.feed.openSearch$totalResults.$t
+         if(totalPosts>totalEntires)
+         {
+         var nextjsoncall = document.createElement('script');
+         nextjsoncall.type = 'text/javascript';
+         startindex=totalEntires+1;
+         nextjsoncall.setAttribute("src", "http://ayurvedapjoshi.blogspot.com/feeds/posts/summary?start-index=" + startindex + "&max-results=500&alt=json-in-script&callback=loadtoc");
+         tocdiv.appendChild(nextjsoncall);
+         }
+      // main loop gets all the entries from the feed
+         for (var i = 0; i < numEntries; i++) {
+         // get the entry from the feed
+            var entry = json.feed.entry[i];
+
+         // get the posttitle from the entry
+            var posttitle = entry.title.$t;
+
+         // get the post date from the entry
+            var postdate = entry.published.$t.substring(0,10);
+
+         // get the post url from the entry
+            var posturl;
+            for (var k = 0; k < entry.link.length; k++) {
+               if (entry.link[k].rel == 'alternate') {
+               posturl = entry.link[k].href;
+               break;
+               }
+            }
+
+         // get the post contents from the entry
+         // strip all html-characters, and reduce it to a summary
+            if ("content" in entry) {
+               var postcontent = entry.content.$t;}
+            else
+               if ("summary" in entry) {
+                  var postcontent = entry.summary.$t;}
+               else var postcontent = "";
+         // strip off all html-tags
+            var re = /<\S[^>]*>/g; 
+            postcontent = postcontent.replace(re, "");
+         // reduce postcontent to numchar characters, and then cut it off at the last whole word
+            if (postcontent.length > numChars) {
+               postcontent = postcontent.substring(0,numChars);
+               var quoteEnd = postcontent.lastIndexOf(" ");
+               postcontent = postcontent.substring(0,quoteEnd) + '...';
+            }
+
+         // get the post labels from the entry
+            var pll = '';
+            if ("category" in entry) {
+               for (var k = 0; k < entry.category.length; k++) {
+                  pll += '<a href="javascript:filterPosts(\'' + entry.category[k].term + '\');" title="Click here to select all posts with label \'' + entry.category[k].term + '\'">' + entry.category[k].term + '</a>,  ';
+               }
+            var l = pll.lastIndexOf(',');
+            if (l != -1) { pll = pll.substring(0,l); }
+            }
+
+         // add the post data to the arrays
+            postTitle.push(posttitle);
+            postDate.push(postdate);
+            postUrl.push(posturl);
+            postSum.push(postcontent);
+            postLabels.push(pll);
+         }
+      }
+      if(totalEntires==totalPosts) {tocLoaded=true;showToc();}
+   } // end of getPostData
+
+// start of showtoc function body
+// get the number of entries that are in the feed
+//   numEntries = json.feed.entry.length;
+
+// get the postdata from the feed
+   getPostData();
+
+// sort the arrays
+   sortPosts(sortBy);
+   tocLoaded = true;
+}
+
+
+
+// filter and sort functions
+
+
+function filterPosts(filter) {
+// This function changes the filter
+// and displays the filtered list of posts
+  // document.getElementById("bp_toc1").scrollTop = document.getElementById("bp_toc1").offsetTop;;
+   postFilter = filter;
+   displayToc(postFilter);
+} // end filterPosts
+
+function allPosts() {
+// This function resets the filter
+// and displays all posts
+
+   postFilter = '';
+   displayToc(postFilter);
+} // end allPosts
+
+function sortPosts(sortBy) {
+// This function is a simple bubble-sort routine
+// that sorts the posts
+
+   function swapPosts(x,y) {
+   // Swaps 2 ToC-entries by swapping all array-elements
+      var temp = postTitle[x];
+      postTitle[x] = postTitle[y];
+      postTitle[y] = temp;
+      var temp = postDate[x];
+      postDate[x] = postDate[y];
+      postDate[y] = temp;
+      var temp = postUrl[x];
+      postUrl[x] = postUrl[y];
+      postUrl[y] = temp;
+      var temp = postSum[x];
+      postSum[x] = postSum[y];
+      postSum[y] = temp;
+      var temp = postLabels[x];
+      postLabels[x] = postLabels[y];
+      postLabels[y] = temp;
+   } // end swapPosts
+
+   for (var i=0; i < postTitle.length-1; i++) {
+      for (var j=i+1; j<postTitle.length; j++) {
+         if (sortBy == "titleasc") { if (postTitle[i] > postTitle[j]) { swapPosts(i,j); } }
+         if (sortBy == "titledesc") { if (postTitle[i] < postTitle[j]) { swapPosts(i,j); } }
+         if (sortBy == "dateoldest") { if (postDate[i] > postDate[j]) { swapPosts(i,j); } }
+         if (sortBy == "datenewest") { if (postDate[i] < postDate[j]) { swapPosts(i,j); } }
+      }
+   }
+} // end sortPosts
+
+// displaying the toc
+
+function displayToc(filter) {
+// this function creates a three-column table and adds it to the screen
+   var numDisplayed = 0;
+   var tocTable = '';
+   var tocHead1 = 'Post Title';
+   var tocTool1 = 'Click to sort by title';
+   var tocHead2 = 'DATE';
+   var tocTool2 = 'Click to sort by date';
+   var tocHead3 = 'LABELS';
+   var tocTool3 = '';
+   if (sortBy == "titleasc") { 
+      tocTool1 += ' (descending)';
+      tocTool2 += ' (newest first)';
+   }
+   if (sortBy == "titledesc") { 
+      tocTool1 += ' (ascending)';
+      tocTool2 += ' (newest first)';
+   }
+   if (sortBy == "dateoldest") { 
+      tocTool1 += ' (ascending)';
+      tocTool2 += ' (newest first)';
+   }
+   if (sortBy == "datenewest") { 
+      tocTool1 += ' (ascending)';
+      tocTool2 += ' (oldest first)';
+   }
+   if (postFilter != '') {
+      tocTool3 = 'Click to show all posts';
+   }
+   tocTable += '<table id="postarctbl">';
+   
+   for (var i = 0; i < postTitle.length; i++) {
+      if (filter == '') {
+         tocTable += '<tr><td><a href="' + postUrl[i] + '" title="' + postSum[i] + '"><span>&#187; &#160;' + postTitle[i]+ ' </span></a></td></tr>';
+         numDisplayed++;
+      } else {
+          z = postLabels[i].lastIndexOf(filter);
+          if ( z!= -1) {
+             tocTable += '<tr><td><a href="' + postUrl[i] + '" title="' + postSum[i] + '"><span>&#187; &#160; '+postTitle[i] + ' </span></a></td></tr>';
+             numDisplayed++;
+          }
+        }
+   }
+   tocTable += '</table>';
+   if (numDisplayed == postTitle.length) {
+      var tocNote = '<span class="toc-note"><br/></span>'; }
+   else {
+      var tocNote = '<span class="toc-note"> \'';
+      tocNote += postFilter + '\' of '+ postTitle.length + ' posts total<br/></span>';
+   }
+   tocdiv.innerHTML = tocTable;
+} // end of displayToc
+
+function toggleTitleSort() {
+   if (sortBy == "titleasc") { sortBy = "titledesc"; }
+   else { sortBy = "titleasc"; }
+   sortPosts(sortBy);
+   displayToc(postFilter);
+} // end toggleTitleSort
+
+function toggleDateSort() {
+   if (sortBy == "datenewest") { sortBy = "dateoldest"; }
+   else { sortBy = "datenewest"; }
+   sortPosts(sortBy);
+   displayToc(postFilter);
+} // end toggleTitleSort
+
+
+function showToc() {
+  if (tocLoaded) { 
+     displayToc(postFilter);
+     var toclink = document.getElementById("toclink");
+   
+  }
+  else { alert("Just wait... TOC is loading"); }
+}
+
+function hideToc() {
+  var tocdiv = document.getElementById("toc");
+  tocdiv.innerHTML = '';
+  var toclink = document.getElementById("toclink");
+  toclink.innerHTML = '<a href="#" onclick="scroll(0,0); showToc(); Effect.toggle('+"'toc-result','blind');"+'">» Show Table of Contents</a> <img src="http://chenkaie.blog.googlepages.com/new_1.gif"/>';
+}
+
+
+</script>
+
+<script src="http://ayurvedapjoshi.blogspot.com/feeds/posts/summary?alt=json-in-script&amp;max-results=500&amp;callback=loadtoc" type="text/javascript"></script>
+
+	<div class="my-navigation">
+		<div class="simple-pagination-first"></div>
+		<div class="simple-pagination-previous"></div>
+		<div class="simple-pagination-page-numbers"></div>
+		<div class="simple-pagination-next"></div>
+		<div class="simple-pagination-last"></div>
+	</div>
+	<div>
+		Page <select class="simple-pagination-select-specific-page"></select> of <span class="simple-pagination-page-count"></span>.
+	</div>
+	<div class="simple-pagination-showing-x-of-x"></div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/js/jquery-simple-pagination-plugin.js"></script>
+<script>
+(function($){
+$('#archivetitle').simplePagination({
+first_content: '&lt;&lt;',
+	previous_content: '<',
+	next_content: '>',
+	last_content: '>>',
+	items_per_page: 10,
+	number_of_visible_page_numbers: 5,
+        use_page_count: true
+});
+
+})(jQuery);
+</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-63864046-1', 'ayurvedapjoshi.blogspot.com');
+	ga('send', 'pageview');
+</script>
+</body>
+</html>
