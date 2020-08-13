@@ -1,11 +1,125 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+    <meta charset="utf-8" />
+    <meta name="author" content="Script Tutorials" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" />
+    <title></title>
+	<link href='https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/css/mediaelementplayer.css' rel='stylesheet'/>
+	<link href='https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/css/musics.css' rel='stylesheet'/>
+	<link href='https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/css/cssselectbox.css' rel='stylesheet'/>
+
+    <style>
+
+        html, body {
+            overflow-x: hidden;
+			background:#003b60 !important;
+        }
+
+        #container {
+            padding: 0 20px 50px;
+        }
+        .error {
+            color: red;
+        }
+        a {
+            word-wrap: break-word;
+        }
+
+        code {
+            font-size: 0.8em;
+        }
+
+  #topsection {height: 155px !important;}     
+ 
+#tabs {
+	float:left;
+	width:100%;
+	font-size:93%;
+	line-height:normal;
+	border-bottom:1px solid #000000;
+	margin-bottom:1em; /*margin between menu and rest of page*/
+	overflow:hidden;
+	}
+
+#tabs ul {
+	margin:0;
+	padding:0px 10px 0 0px;
+	list-style:none;
+	border-bottom:1px solid #000000;
+	}
+
+#tabs li {
+	display:inline;
+	margin:0;
+	padding:0;
+	}
+
+#tabs a {
+	float:left;
+	background:url("https://live.staticflickr.com//65535//50221348786_6e98968b8e_o.png") no-repeat left top; background-size: 60px 30 px;
+	margin:0;
+	padding:0 0 0 6px;
+	text-decoration:none;
+	display:block;
+	border: 1px solid #000000;
+	}
+
+#tabs a span {
+	float:left;
+	display:block;
+	background:url("https://live.staticflickr.com//65535//50221348786_6e98968b8e_o.png") no-repeat right top;
+	padding:6px 15px 4px 6px;
+	margin-right:2px;
+	color:#FFF;
+	}
+
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+#tabs a span {float:none;}
+
+/* End IE5-Mac hack */
+#tabs a:hover span {
+	}
+
+#tabs a:hover {
+	background:url("https://live.staticflickr.com//65535//50221569077_5b5272e5f5_o.png") no-repeat left top; background-size: 60px 30 px;
+	}
+
+#tabs a:hover span {
+	background:url("https://live.staticflickr.com//65535//50221569077_5b5272e5f5_o.png") no-repeat right top;
+	font-weight: bold;
+	}
+
+</style>
+
+ 
+ 
+ 
+
+  <link rel="stylesheet" href="https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/css/mep-feature-playlist.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/css/mediaelementplayer.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/css/mate.min.css">
+    
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/js/mediaelement-and-player.min.js"></script>
+    <script src="https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/js/mep-feature-playlist.js"></script>
+	
+	<style type="text/css">
+	.mejs__playlist-button {width:0px; height:0;visibility:hidden;}
+	</style>
+	
+ 
     
 </head>
 <body>
 <div id='maincontainer'>
+
+
+
 <div id='contentwrapper'>
 <div id='contentcolumn'>
  <div style="width:324px;">
