@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Script Tutorials" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" />
+    <title>\</title>
+	<link href='https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/css/mediaelementplayer.css' rel='stylesheet'/>
+	<link href='https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/css/musics.css' rel='stylesheet'/>
+	<link href='https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/css/cssselectbox.css' rel='stylesheet'/>
+
+    <style>
+
+        html, body {
+            overflow-x: hidden;
+			background:#003b60 !important;
+        }
+
+        #container {
+            padding: 0 20px 50px;
+        }
+        .error {
+            color: red;
+        }
+        a {
+            word-wrap: break-word;
+        }
+
+        code {
+            font-size: 0.8em;
+        }
+
+  #topsection {height: 155px !important;}     
+ 
+#tabs {
+	float:left;
+	width:100%;
+	font-size:93%;
+	line-height:normal;
+	border-bottom:1px solid #000000;
+	margin-bottom:1em; /*margin between menu and rest of page*/
+	overflow:hidden;
+	}
+
+#tabs ul {
+	margin:0;
+	padding:0px 10px 0 0px;
+	list-style:none;
+	border-bottom:1px solid #000000;
+	}
+
+#tabs li {
+	display:inline;
+	margin:0;
+	padding:0;
+	}
+
+#tabs a {
+	float:left;
+	background:url("https://live.staticflickr.com//65535//50221348786_6e98968b8e_o.png") no-repeat left top; background-size: 60px 30 px;
+	margin:0;
+	padding:0 0 0 6px;
+	text-decoration:none;
+	display:block;
+	border: 1px solid #000000;
+	}
+
+#tabs a span {
+	float:left;
+	display:block;
+	background:url("https://live.staticflickr.com//65535//50221348786_6e98968b8e_o.png") no-repeat right top;
+	padding:6px 15px 4px 6px;
+	margin-right:2px;
+	color:#FFF;
+	}
+
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+#tabs a span {float:none;}
+
+/* End IE5-Mac hack */
+#tabs a:hover span {
+	}
+
+#tabs a:hover {
+	background:url("https://live.staticflickr.com//65535//50221569077_5b5272e5f5_o.png") no-repeat left top; background-size: 60px 30 px;
+	}
+
+#tabs a:hover span {
+	background:url("https://live.staticflickr.com//65535//50221569077_5b5272e5f5_o.png") no-repeat right top;
+	font-weight: bold;
+	}
+
+</style>
+
+ 
+ 
+ 
+
+  <link rel="stylesheet" href="https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/css/mep-feature-playlist.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/css/mediaelementplayer.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/css/mate.min.css">
+    
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/js/mediaelement-and-player.min.js"></script>
+    <script src="https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/js/mep-feature-playlist.js"></script>
+	
+	<style type="text/css">
+	.mejs__playlist-button {width:0px; height:0;visibility:hidden;}
+	</style>
+	
+ 
+    
+</head>
+<body>
+<div id='maincontainer'>
+
+
+
+<div id='contentwrapper'>
+<div id='contentcolumn'>
+ <div style="width:324px;">
+           
+
+			  <video class="mediaElementPlaylist" data-showplaylist="true" src="http://peridot.streamguys.com:7150/Mirchi" preload="none" controls autoplay">
+			  <source src="http://peridot.streamguys.com:7150/Mirchi" type="audio/mp3" title="Mirchi">
+          <source src="https://mirchiahmedabad-lh.akamaihd.net/i/Mirchi_Ahmedabad@693083/index_1_a-p.m3u8?sd=10&rebase=on"type="audio/mp3" title="Mirchi Ahmedabad" />
+          <source src="http://mirchidelhi-lh.akamaihd.net/i/Mirchi_Delhi@693087/index_1_a-p.m3u8?sd=10&rebase=on"type="audio/mp3" title="Mirchi Delhi" />
+<source src="https://mirchimumbai-lh.akamaihd.net/i/Mirchi_Mumbai@693088/index_1_a-p.m3u8?sd=10&rebase=on"type="audio/mp3" title="Mirchi Mumbai" />
+<source src="https://mirchichandigar-lh.akamaihd.net/i/Mirchi_Chandigarh@693086/index_1_a-p.m3u8?sd=10&rebase=on"type="audio/mp3" title="Mirchi Chandigarh" />
+<source src="https://mirchihyderabad-lh.akamaihd.net/i/Mirchi_Hyderabad@693055/index_1_a-p.m3u8?sd=10&rebase=on"type="audio/mp3" title="Mirchi Hyderabad" />
+
+          
+          
+          
+<source src="http://airfmgold-lh.akamaihd.net/i/fmgold_1@507591/master.m3u8"type="audio/mp3" title="FM Gold" />
+<source src="http://fmrainbow-lh.akamaihd.net/i/fmrainbow_1@507812/master.m3u8"type="audio/mp3" title="FM Rainbow" />
+
+<source src="http://vividhbharati-lh.akamaihd.net/i/vividhbharati_1@507811/master.m3u8"type="audio/mp3" title="Vividh Bharati" />
+<source src="http://nondelhi-lh.akamaihd-staging.net/i/fmraingoa_1@813593/master.m3u8"type="audio/mp3" title="FM Rainbow Goa" />
+<source src="http://nondelhi-lh.akamaihd-staging.net/i/rainmumb_1@830454/master.m3u8"type="audio/mp3" title="FM Rainbow Mumbai" />
+<source src="http://nondelhi-lh.akamaihd-staging.net/i/goldmumb_1@830453/master.m3u8"type="audio/mp3" title="FM Gold Mumbai" />
+                
+<source src="http://nondelhi-lh.akamaihd-staging.net/i/airlucknow_1@825824/master.m3u8"type="audio/mp3" title="FM Rainbow Lucknow" />
+<source src="http://nondelhi-lh.akamaihd-staging.net/i/airjodhfm_1@813590/master.m3u8"type="audio/mp3" title="Sun City FM Jodhpur" />
+<source src="http://nondelhi-lh.akamaihd-staging.net/i/vbsbeng_1@812379/master.m3u8"type="audio/mp3" title="Vividh Bharati Bengaluru" />
+<source src="http://nondelhi-lh.akamaihd-staging.net/i/airindore_1@813588/master.m3u8"type="audio/mp3" title="AIR Indore" />
+<source src="http://nondelhi-lh.akamaihd-staging.net/i/airbhuj_1@813592/master.m3u8"type="audio/mp3" title="AIR Bhuj" />
+                
+                
+<source src="http://airgujarati-lh.akamaihd.net/i/airgujarati_1@507814/master.m3u8"type="audio/mp3" title="AIR Gujarati" />
+
+                   
+                
+<source src="https://prclive4.listenon.in/Dance"type="audio/mp3" title="Radiocity Dance" />
+<source src="https://prclive4.listenon.in/Hindi"type="audio/mp3" title="Radiocity Hindi" />
+<source src="https://prclive4.listenon.in/Metal"type="audio/mp3" title="Radiocity Metal" />
+<source src="https://prclive4.listenon.in/Electronica"type="audio/mp3" title="Radiocity Electronica" />
+
+<source src="https://prclive4.listenon.in/Smaran"type="audio/mp3" title="Radiocity Smaran" />
+                
+<source src="https://prclive4.listenon.in/Ghazal"type="audio/mp3" title="Radiocity Gazal" />
+<source src="https://prclive4.listenon.in/Gujarati"type="audio/mp3" title="Radiocity Gujarati" />
+                
+               
+               
+		  </video>
+        
+		   </div>
+		
+  
+</div>
+
+
+<div id='footer'class="box">
+  <ul class="list-inline inline-center">
+            
+        </ul>
+
+</div>
+       
+</div>
+  <script>
+        if ($.fn.mediaelementplayer) {
+            $('audio.mediaElementPlaylist').mediaelementplayer({
+                audioWidth: '100%',
+                alwaysShowControls: true,
+                error: function (media, node) {
+                    $(media).parents('.mediaElementPlaylist').addClass('playlist_cannotplay');
+                },
+                features: ['playlistfeature', 'prevtrack', 'playpause', 'nexttrack', 'progress', 'duration', 'playlist', 'volume', 'fullscreen']
+            });
+
+            $('video.mediaElementPlaylist').mediaelementplayer({
+                stretching: 'responsive',
+                playlistposition: 'bottom',
+                alwaysShowControls: false,
+                alwaysShowPlaylist: true,
+                features: ['playlistfeature', 'prevtrack', 'playpause', 'nexttrack', 'progress','duration','playlist', 'volume', 'fullscreen']
+            });
+        }
+  
+  </script>  
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.6/mediaelement-and-player.min.js"></script>
+  
+</body>
+</html>
