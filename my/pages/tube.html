@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Script Tutorials" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" />
+    <title></title>
+	<link href='https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/css/mediaelementplayer.css' rel='stylesheet'/>
+	<link href='https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/css/musics.css' rel='stylesheet'/>
+	<link href='https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/css/cssselectbox.css' rel='stylesheet'/>
+
+    <style>
+
+        html, body {
+            overflow-x: hidden;
+			background:#003b60 !important;
+        }
+
+        #container {
+            padding: 0 20px 50px;
+        }
+        .error {
+            color: red;
+        }
+        a {
+            word-wrap: break-word;
+        }
+
+        code {
+            font-size: 0.8em;
+        }
+
+       
+  body{
+background-color: #003049;
+margin: 0 auto;
+padding:0;
+line-height: 1.5em;
+}
+
+b{font-size: 110%;}
+em{color: red;}
+
+#maincontainer{
+width: 363px; /*Width of main container*/
+margin: 0 auto; /*Center container on page*/
+}
+
+#topsection{
+background: #0082D6;
+height: 153px; /*Height of top section*/
+overflow: hidden;
+margin-top: 1px;
+}
+
+#topsection h1{
+margin: 0;
+padding-top: 15px;
+}
+
+#contentwrapper{
+float: left;
+width: 100%;
+}
+
+#contentcolumn{
+margin-left: 0px; /*Set left margin to LeftColumnWidth*/
+background: #025487;
+color: #ffffff;
+}
+
+#leftcolumn{
+float: left;
+width: 200px; /*Width of left column*/
+margin-left: -363px; /*Set left margin to -(MainContainerWidth)*/
+background: #C8FC98;
+}
+
+#footer{
+clear: left;
+width: 100%;
+background: black;
+color: #FFF;
+text-align: center;
+padding: 4px 0;
+}
+
+#footer a{
+color: #FFFF80;
+}
+
+
+
+/* ####### responsive layout CSS ####### */
+
+@media (max-width: 325px){ /* responsive layout break point */
+	#maincontainer{
+	width: 100%;
+	}
+	
+	#contentwrapper{
+	float: none;
+	}
+	
+	#leftcolumn{
+	float: none;
+	width: 100%;
+	margin-left: 0;
+	}
+	
+	#contentcolumn{
+	margin-left: 0;
+	}
+}
+
+
+        
+        #container {
+            padding: 0 20px 50px;
+        }
+        .error {
+            color: red;
+        }
+        a {
+            word-wrap: break-word;
+        }
+
+        code {
+            font-size: 0.8em;
+        }
+
+        #player2-container .mejs__time-buffering, #player2-container .mejs__time-current, #player2-container .mejs__time-handle,
+        #player2-container .mejs__time-loaded, #player2-container .mejs__time-hovered, #player2-container .mejs__time-marker, #player2-container .mejs__time-total {
+            height: 2px;
+        }
+
+        #player2-container .mejs__time-total {
+            margin-top: 9px;
+        }
+        #player2-container .mejs__time-handle {
+            left: -5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ffffff;
+            top: -5px;
+            cursor: pointer;
+            display: block;
+            position: absolute;
+            z-index: 2;
+            border: none;
+        }
+        #player2-container .mejs__time-handle-content {
+            top: 0;
+            left: 0;
+            width: 12px;
+            height: 12px;
+        }
+		
+  
+    </style>
+ 
+
+  <link rel="stylesheet" href="https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/css/mep-feature-playlist.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/css/mediaelementplayer.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/css/mate.min.css">
+    
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/js/mediaelement-and-player.min.js"></script>
+    <script src="https://cdn.rawgit.com/pjoshi235/pjoshi/gh-pages/my/js/mep-feature-playlist.js"></script>
+	
+	<style type="text/css">
+	.mejs__playlist-button {width:0px; height:0;visibility:hidden;}
+        .mejs__playlist {
+              background-color: #0165a3 !important;width:363px !important; 
+                }
+	</style>
+ 
+    
+</head>
+<body>
+<div id='maincontainer'>
+
+
+
+<div id='contentwrapper'>
+<div id='contentcolumn'">
+ <div style="width:363px !important;min-height:420px;">
+           
+
+		   <audio class="mediaElementPlaylist" data-showplaylist="true" src="" preload="none" controls autoplay">
+			   <source src="" type="audio/mp3" title="Select Song From Below">
+                         
+                          <source src="https://www.youtube.com/watch?v=YLZ2ZcrJcHI?t=10" type="audio/mp3" title="Kishor Kumar's Medley- Jatin Joshi">
+                           
+                          <source src="https://www.youtube.com/watch?v=sYTic2RGRVo" type="audio/mp3" title="Rote Huye Aate He Sab- Jatin Joshi">
+        
+          
+                       
+        
+
+               
+		  </audio>
+        
+		   </div>
+		
+  
+</div>
+
+
+<div id='footer'class="box">
+  <ul class="list-inline inline-center">
+            
+        </ul>
+
+</div>
+ <!--<option value="rtmp://s3b78u0kbtx79q.cloudfront.net/cfx/st/mp3:fake_empire-cbr">RTMP</option>-->
+                    <!--<option value="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/282715465&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">SoundCloud</option>-->
+ <!--<option value="https://api.soundcloud.com/tracks/323195515/stream?client_id=95f22ed54a5c297b1c41f72d713623ef">SoundCloud</option>-->
+                
+                
+</div>
+  <script>
+        if ($.fn.mediaelementplayer) {
+            $('audio.mediaElementPlaylist').mediaelementplayer({
+                audioWidth: '100%',
+                alwaysShowControls: true,
+                error: function (media, node) {
+                    $(media).parents('.mediaElementPlaylist').addClass('playlist_cannotplay');
+                },
+                features: ['playlistfeature', 'prevtrack', 'playpause', 'nexttrack', 'current', 'progress', 'duration',  'playlist', 'volume']
+            });
+
+            $('video.mediaElementPlaylist').mediaelementplayer({
+                stretching: 'responsive',
+                playlistposition: 'bottom',
+                alwaysShowControls: false,
+                alwaysShowPlaylist: true,
+                features: ['playlistfeature', 'prevtrack', 'playpause', 'nexttrack', 'current',  'progress', 'duration', 'playlist', 'volume']
+            });
+        }
+  
+  </script>  
+   
+</body>
+</html>
